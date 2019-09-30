@@ -1,0 +1,43 @@
+{
+  "name": "@medley/router",
+  "version": "0.1.0",
+  "description": "A high-performance URL router",
+  "author": "Nathan Woltman <nwoltman@outlook.com>",
+  "license": "MIT",
+  "main": "Router.js",
+  "files": [
+    "Router.js"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": "github:medleyjs/router",
+  "homepage": "https://github.com/medleyjs/router",
+  "bugs": "https://github.com/medleyjs/router/issues",
+  "keywords": [
+    "router",
+    "fast",
+    "performance",
+    "url"
+  ],
+  "eslintIgnore": [
+    "coverage/"
+  ],
+  "dependencies": {
+    "object-treeify": "^1.1.20",
+    "safe-decode-uri-component": "^1.2.1"
+  },
+  "devDependencies": {
+    "@nwoltman/eslint-config": "~0.3.1",
+    "benchmark": "^2.1.4",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.5.0",
+    "mocha": "^6.2.1",
+    "nyc": "^14.1.1"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "eslint . && nyc --reporter=html --reporter=text-summary mocha",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  }
+}

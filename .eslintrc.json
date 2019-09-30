@@ -1,0 +1,20 @@
+{
+  "root": true,
+  "extends": "@nwoltman/eslint-config",
+  "overrides": [
+    {
+      "files": ["test/*.test.js"],
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "consistent-return": "off",
+        "max-len": "off",
+        "max-nested-callbacks": "off",
+        "no-sync": "off",
+        "padded-blocks": "off",
+        "prefer-arrow-callback": "off"
+      }
+    }
+  ]
+}
