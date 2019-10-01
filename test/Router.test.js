@@ -10,10 +10,10 @@ describe('Router', () => {
   describe('constructor', () => {
 
     it('throws if passed a non-function for the `storeFactory` value', () => {
-      assert.throws(() => new Router(null), new TypeError('`storeFactory` must be a function'));
-      assert.throws(() => new Router(true), new TypeError('`storeFactory` must be a function'));
-      assert.throws(() => new Router({}), new TypeError('`storeFactory` must be a function'));
-      assert.throws(() => new Router(1), new TypeError('`storeFactory` must be a function'));
+      assert.throws(() => new Router({storeFactory: null}), new TypeError('`storeFactory` must be a function'));
+      assert.throws(() => new Router({storeFactory: true}), new TypeError('`storeFactory` must be a function'));
+      assert.throws(() => new Router({storeFactory: {}}), new TypeError('`storeFactory` must be a function'));
+      assert.throws(() => new Router({storeFactory: 1}), new TypeError('`storeFactory` must be a function'));
     });
 
   });
@@ -40,7 +40,7 @@ describe('Router', () => {
     });
 
     it('throws if the storeFactory returns `null`', () => {
-      const router = new Router(() => null);
+      const router = new Router({storeFactory: () => null});
       assert.throws(() => router.register('/'), new Error('Custom storeFactory returned `null`, which is not allowed'));
     });
 
@@ -64,7 +64,7 @@ describe('Router', () => {
     });
 
     it('returns the store created by the storeFactory (custom storeFactory)', () => {
-      const router = new Router(() => Symbol('route'));
+      const router = new Router({storeFactory: () => Symbol('route')});
 
       const rootStore = router.register('/');
       assert.equal(typeof rootStore, 'symbol');

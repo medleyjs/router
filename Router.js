@@ -37,7 +37,7 @@ function defaultStoreFactory() {
 }
 
 class Router {
-  constructor(storeFactory) {
+  constructor({storeFactory} = {}) {
     if (storeFactory === undefined) {
       storeFactory = defaultStoreFactory;
     } else if (typeof storeFactory === 'function') {
