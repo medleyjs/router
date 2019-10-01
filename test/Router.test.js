@@ -108,7 +108,7 @@ describe('Router', () => {
   });
 
 
-  describe('.toString()', () => {
+  describe('.debugTree()', () => {
 
     it('returns a representation of the radix tree as a string', () => {
       const router = createRouter([
@@ -125,7 +125,7 @@ describe('Router', () => {
         '/api/:version/status',
         '/api/*',
       ]);
-      const str = router.toString();
+      const str = router.debugTree();
 
       assert.equal(typeof str, 'string');
       assert.equal(str[0], '/');

@@ -198,7 +198,7 @@ class Router {
     return matchRoute(url, urlLength, this._root, 0);
   }
 
-  toString() {
+  debugTree() {
     return require('object-treeify')(debugNode(this._root))
       .replace(/^.{3}/gm, ''); // Remove the first 3 characters of every line
   }
