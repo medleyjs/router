@@ -1,7 +1,5 @@
 'use strict';
 
-const safeDecodeURIComponent = require('safe-decode-uri-component');
-
 function createNode(pathPart, staticChildren) {
   return {
     pathPart,
@@ -267,8 +265,7 @@ function matchRoute(url, urlLength, node, startIndex) {
       if (slashIndex === -1 || slashIndex >= urlLength) {
         if (parametricNode.store !== null) {
           const params = {}; // This is much faster than using a computed property
-          params[parametricNode.paramName] =
-            safeDecodeURIComponent(url.slice(startIndex, urlLength));
+          params[parametricNode.paramName] = url.slice(startIndex, urlLength);
           return {
             store: parametricNode.store,
             params,
@@ -278,8 +275,7 @@ function matchRoute(url, urlLength, node, startIndex) {
         const route = matchRoute(url, urlLength, parametricNode.staticChild, slashIndex);
 
         if (route !== null) {
-          route.params[parametricNode.paramName] =
-            safeDecodeURIComponent(url.slice(startIndex, slashIndex));
+          route.params[parametricNode.paramName] = url.slice(startIndex, slashIndex);
           return route;
         }
       }
@@ -290,7 +286,7 @@ function matchRoute(url, urlLength, node, startIndex) {
     return {
       store: node.wildcardStore,
       params: {
-        '*': safeDecodeURIComponent(url.slice(startIndex, urlLength)),
+        '*': url.slice(startIndex, urlLength),
       },
     };
   }
