@@ -9,7 +9,7 @@ A high-performance URL router for JavaScript/Node.js.
 
 ### Features
 
-+ Currently the fastest JavaScript router implementations out there ([benchmarks](https://github.com/medleyjs/router-benchmark))
++ Currently the fastest JavaScript router implementations out there ([see benchmarks](https://github.com/medleyjs/router-benchmark))
 + Supports multiple routes with the same prefix as dynamic routes ([see here for details](#path-match-order))
 + Only handles routing the URL, so it’s very flexible for building features on top of it
   + e.g. This makes it easy to support `405 Method Not Allowed` responses
@@ -26,8 +26,8 @@ yarn add @medley/router
 
 ### `new Router([options])`
 
-+ `options` *(object)* - Optional object that may have any of the following options:
-  + `storeFactory` *(function)* - Called when a new route is registered to create the route store.
++ `options` (*object*) - Optional object that may have any of the following options:
+  + `storeFactory` (*function*) - Called when a new route is registered to create the route store.
     + Default: `() => Object.create(null)`
 
 Constructs a new router instance.
@@ -54,7 +54,7 @@ console.log(store); // { handlers: Map {}, middlewares: [] }
 
 ### `router.register(path)`
 
-+ `path` *(string)* - The route path.
++ `path` (*string*) - The route path.
 + Returns: *object* - The route store.
 
 Registers a route and returns the route store object.<br>
@@ -168,8 +168,8 @@ console.log(route.params); // { '*': '' }
 
 ### `router.find(url)`
 
-+ `url` *(string)* - The URL used to find a matching route.
-+ Returns: *({store: object, params: object} | null)* - The route store and matching parameters, or `null` if the URL did not match any registered routes.
++ `url` (*string*) - The URL used to find a matching route.
++ Returns: (*{store: object, params: object}* | *null*) - The route store and matching parameters, or `null` if the URL did not match any registered routes.
 
 Finds a route that matches the provided URL. Returns `null` if no route matches the URL.
 
