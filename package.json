@@ -1,6 +1,6 @@
 {
   "name": "@medley/router",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A high-performance URL router",
   "author": "Nathan Woltman <nwoltman@outlook.com>",
   "license": "MIT",
