@@ -9,10 +9,10 @@ A high-performance URL router for JavaScript/Node.js.
 
 ### Features
 
-+ One of the fastest JavaScript router implementations out there
-+ [Supports](#path-match-order) multiple routes with the same prefix as dynamic routes (unlike `koa-tree-router` and `road-runner`)
-+ Makes it easy to support `405 Method Not Allowed` responses
-+ Doesn’t deal with HTTP methods, so it can support a wider range of use cases
++ Currently the fastest JavaScript router implementations out there ([benchmarks](https://github.com/medleyjs/router-benchmark))
++ Supports multiple routes with the same prefix as dynamic routes ([see here for details](#path-match-order))
++ Only handles routing the URL, so it’s very flexible for building features on top of it
+  + e.g. This makes it easy to support `405 Method Not Allowed` responses
 
 ## Installation
 
@@ -236,14 +236,14 @@ For example, with the following routes defined:
 incoming URLs will be matched like this:
 
 ```js
-// Matches '/static/favicon.ico':
 '/static/favicon.ico'
+// Matches '/static/favicon.ico'
 
-// Matches '/static/:hash/webpack/*':
 '/static/00a8b09d8ef/webpack/runtime.js'
 '/static/00a8b09d8ef/webpack/css/common.css'
+// Matches '/static/:hash/webpack/*'
 
-// Matches '/static/*':
 '/static/vendor/css/bootstrap.css'
 '/static/images/header.jpg'
+// Matches '/static/*'
 ```
