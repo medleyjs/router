@@ -1,22 +1,23 @@
 language: node_js
 node_js:
-- '12'
-- '10'
+  - 13
+  - 12
+  - 10
 after_success: npm run coveralls
 stages:
-- test
-- name: npm release
-  if: tag IS present
+  - test
+  - name: npm release
+    if: tag IS present
 jobs:
   include:
-  - stage: npm release
-    install: skip
-    script: skip
-    after_success: true
-    deploy:
-      provider: npm
-      email: nwoltman@outlook.com
-      on:
-        tags: true
-      api_key:
-        secure: qL1SIdEv9WbGzp7JCEhjag3+9u6YYztuWv4sQ0HpsQadaZB90BhYgIWThKa/aoJJwbOWLS1YSAVYT/+gjbCF2qX6LsTaN/bY99/Kugxt48hUnnxKFKDkRTfGYlwpQKCgvjMM9rUawGaLyt2BU8lIdpgcimvJQ7+ijuWkdRLybJvk6nkKm+Hc0Smgi5dE9g1rZFs9d/4h2dffY5hZsvFx4ZHz//V2+iGp0iupnNFwOwUTrceltatRCBV1TjPAHuqGOknQ7ySTtVQ0WsIe5iTgpr3mzIDo7oDDskZCGzzySOsD9BG+0msRTH37+yj9+4gpIlRB8aK3uXFRX/rxPIamfwTzB5l4vnIxlifnPnHAN69lwPbxtBTZeATuf+UbDQOnm4XTkDeM4Szrpq66HgTRSFqBMEldK+DPi8eoAc+testJkbA6azlVsFIR0OWWoxrBNpcv42NetQhy+l011oiq1lvDhhp6XVGpFso5ICGfD6okjlphdra1Mwigug7/rUYdaZfSWMOapbHjJVNdKbTnw9K0vLLrtWE7iZCy81u6ayww2x0CTGc4whiuvnvIqY99gPj2HCUSTlyTKFTrzT27pYwXG5Q9ur0aqgkkgtty3w7dJoQ8x3Vxj26wzRtcnnNv53M1mqpXHDOka2jkYrN4XOl0w8OmbW9HdfoyDOQyDWs=
+    - stage: npm release
+      install: skip
+      script: skip
+      after_success: true
+      deploy:
+        provider: npm
+        email: nwoltman@outlook.com
+        on:
+          tags: true
+        api_key:
+          secure: qL1SIdEv9WbGzp7JCEhjag3+9u6YYztuWv4sQ0HpsQadaZB90BhYgIWThKa/aoJJwbOWLS1YSAVYT/+gjbCF2qX6LsTaN/bY99/Kugxt48hUnnxKFKDkRTfGYlwpQKCgvjMM9rUawGaLyt2BU8lIdpgcimvJQ7+ijuWkdRLybJvk6nkKm+Hc0Smgi5dE9g1rZFs9d/4h2dffY5hZsvFx4ZHz//V2+iGp0iupnNFwOwUTrceltatRCBV1TjPAHuqGOknQ7ySTtVQ0WsIe5iTgpr3mzIDo7oDDskZCGzzySOsD9BG+0msRTH37+yj9+4gpIlRB8aK3uXFRX/rxPIamfwTzB5l4vnIxlifnPnHAN69lwPbxtBTZeATuf+UbDQOnm4XTkDeM4Szrpq66HgTRSFqBMEldK+DPi8eoAc+testJkbA6azlVsFIR0OWWoxrBNpcv42NetQhy+l011oiq1lvDhhp6XVGpFso5ICGfD6okjlphdra1Mwigug7/rUYdaZfSWMOapbHjJVNdKbTnw9K0vLLrtWE7iZCy81u6ayww2x0CTGc4whiuvnvIqY99gPj2HCUSTlyTKFTrzT27pYwXG5Q9ur0aqgkkgtty3w7dJoQ8x3Vxj26wzRtcnnNv53M1mqpXHDOka2jkYrN4XOl0w8OmbW9HdfoyDOQyDWs=
