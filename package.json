@@ -23,20 +23,30 @@
   "eslintIgnore": [
     "coverage/"
   ],
+  "nyc": {
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "check-coverage": true,
+    "branches": 100,
+    "lines": 100,
+    "statements": 100
+  },
   "dependencies": {
     "object-treeify": "^1.1.20"
   },
   "devDependencies": {
-    "@nwoltman/eslint-config": "~0.3.1",
+    "@nwoltman/eslint-config": "~0.5.1",
     "benchmark": "^2.1.4",
-    "coveralls": "^3.0.6",
-    "eslint": "^6.5.0",
-    "mocha": "^6.2.1",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
+    "mocha": "^6.2.2",
     "nyc": "^14.1.1"
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "eslint . && nyc --reporter=html --reporter=text-summary mocha",
+    "test": "eslint . && nyc mocha",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   }
 }
