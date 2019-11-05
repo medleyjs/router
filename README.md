@@ -58,7 +58,7 @@ console.log(store); // { handlers: Map {}, middlewares: [] }
 + Returns: *object* - The route store.
 
 Registers a route and returns the route store object.<br>
-If the route path has already been registered, the route store is simply returned.
+Just returns the route store if the route has already been registered.
 
 ```js
 const Router = require('@medley/router');
@@ -169,7 +169,7 @@ console.log(route.params); // { '*': '' }
 ### `router.find(url)`
 
 + `url` (*string*) - The URL used to find a matching route.
-+ Returns: (*{store: object, params: object}* | *null*) - The route store and matching parameters, or `null` if the URL did not match any registered routes.
++ Returns: *{store: object, params: object}* | *null* - The route store and matching parameters, or `null` if the URL did not match any registered routes.
 
 Finds a route that matches the provided URL. Returns `null` if no route matches the URL.
 
